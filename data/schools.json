@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Clay LLC",
+    "address": {
+      "street": "41857 John Mall Apt. 139",
+      "city": "Brandyside",
+      "zipCode": "17658",
+      "country": "Hungary"
+    },
+    "type": "private",
+    "level": "primary",
+    "averageNote": 2.42
+  },
+  {
+    "name": "Murray Group",
+    "address": {
+      "street": "250 Cynthia Drive Apt. 521",
+      "city": "Allenton",
+      "zipCode": "49909",
+      "country": "Israel"
+    },
+    "type": "public",
+    "level": "secondary",
+    "averageNote": 1.43
+  },
+  {
+    "name": "Bradford, Valenzuela and Wagner",
+    "address": {
+      "street": "49860 Maria Village Suite 944",
+      "city": "South Melinda",
+      "zipCode": "43143",
+      "country": "Bulgaria"
+    },
+    "type": "public",
+    "level": "high",
+    "averageNote": 3.75
+  },
+  {
+    "name": "Cook, Branch and Gilbert",
+    "address": {
+      "street": "5847 Kara Walk Suite 317",
+      "city": "East Sherry",
+      "zipCode": "96677",
+      "country": "Norfolk Island"
+    },
+    "type": "public",
+    "level": "high",
+    "averageNote": 5.0
+  },
+  {
+    "name": "Jones, Rodriguez and Brown",
+    "address": {
+      "street": "15269 Jennifer Points",
+      "city": "Cookborough",
+      "zipCode": "80129",
+      "country": "Colombia"
+    },
+    "type": "public",
+    "level": "high",
+    "averageNote": 4.28
+  },
+  {
+    "name": "Rose Ltd",
+    "address": {
+      "street": "309 Margaret Villages",
+      "city": "Garciaport",
+      "zipCode": "44530",
+      "country": "Heard Island and McDonald Islands"
+    },
+    "type": "public",
+    "level": "secondary",
+    "averageNote": 1.22
+  },
+  {
+    "name": "Jordan-Brooks",
+    "address": {
+      "street": "613 Alejandro Land",
+      "city": "North Sarahmouth",
+      "zipCode": "17544",
+      "country": "Christmas Island"
+    },
+    "type": "private",
+    "level": "high",
+    "averageNote": 1.55
+  },
+  {
+    "name": "Hamilton-Rhodes",
+    "address": {
+      "street": "8831 Donna Cliff",
+      "city": "Stevensonmouth",
+      "zipCode": "56166",
+      "country": "Cuba"
+    },
+    "type": "private",
+    "level": "primary",
+    "averageNote": 2.69
+  },
+  {
+    "name": "Howard Group",
+    "address": {
+      "street": "1969 Mitchell Mountain",
+      "city": "Samuelhaven",
+      "zipCode": "14808",
+      "country": "Korea"
+    },
+    "type": "private",
+    "level": "primary",
+    "averageNote": 4.87
+  },
+  {
+    "name": "Price Ltd",
+    "address": {
+      "street": "4625 Tammy Springs",
+      "city": "Port Michaelfort",
+      "zipCode": "06166",
+      "country": "Estonia"
+    },
+    "type": "public",
+    "level": "high",
+    "averageNote": 4.19
+  },
+  {
+    "name": "Hodges PLC",
+    "address": {
+      "street": "425 Sanchez Stream Apt. 776",
+      "city": "Lake Jonathanchester",
+      "zipCode": "88352",
+      "country": "Colombia"
+    },
+    "type": "private",
+    "level": "secondary",
+    "averageNote": 1.58
+  },
+  {
+    "name": "Durham Group",
+    "address": {
+      "street": "9703 Richardson Mall",
+      "city": "Michaeltown",
+      "zipCode": "35150",
+      "country": "France"
+    },
+    "type": "public",
+    "level": "high",
+    "averageNote": 3.64
+  }
+]
