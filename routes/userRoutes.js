@@ -14,8 +14,14 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 router.get('/', userController.getAllUsers);
 router.route('/:id').get(userController.getUser);
 
+
+router.route('/me').get()
+
 // Toutes les routes suivantes nécessitent une authentification préalable
-router.use(authController.protect);
+router.use(
+  authController.protect,
+  authController.restrictTo('admin', 'director', 'teacher')
+);
 
 router
   .route('/:id')

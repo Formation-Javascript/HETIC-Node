@@ -126,16 +126,16 @@ exports.resetPassword = catchAsync(async function (req, res, next) {
     return next(new AppError('Token is invalid or has expired', 400));
   }
 
-    user.password = req.body.password;
-    user.passwordConfirm = req.body.passwordConfirm;
-    // On supprime le passwordResetToken et le passwordResetExpires du document
-    // Vu que le mot de passe a été modifié
-    user.passwordResetToken = undefined;
-    user.passwordResetExpires = undefined;
-    await user.save();
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  // On supprime le passwordResetToken et le passwordResetExpires du document
+  // Vu que le mot de passe a été modifié
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+  await user.save();
 
-    // 3) Envoyer le token au client
-    createSendToken(user, 200, res)
+  // 3) Envoyer le token au client
+  createSendToken(user, 200, res);
 });
 
 exports.protect = catchAsync(async function (req, res, next) {
@@ -181,3 +181,23 @@ exports.protect = catchAsync(async function (req, res, next) {
 
   next();
 });
+
+// Middleware pour les rôles
+exports.restrictTo = (...roles) => {
+  // ...roles = le reste des arguments il permet de passer plusieurs arguments à la fonction
+
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError('You do not have permission to perform this action', 403)
+      ); // 403 = Forbidden
+    }
+
+    next();
+  };
+};
+
+/* // Middleware pour les utilisateurs connectés
+exports.isLogged = catchAsync(async function (req, res, next) {
+  
+}); */
