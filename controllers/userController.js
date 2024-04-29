@@ -34,7 +34,6 @@ exports.getUser = catchAsync(async function (req, res, next) {
 });
 
 exports.updateUser = catchAsync(async function (req, res, next) {
-
   const user = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true, // Retourne le nouvel utilisateur
     runValidators: true, // Exécute les validateurs du schéma
@@ -53,7 +52,6 @@ exports.updateUser = catchAsync(async function (req, res, next) {
   });
 });
 
-
 exports.deleteUser = catchAsync(async function (req, res, next) {
   const user = await User.findByIdAndDelete(req.params.id);
 
@@ -65,5 +63,22 @@ exports.deleteUser = catchAsync(async function (req, res, next) {
   res.status(204).json({
     status: 'success',
     data: null,
+  });
+});
+
+exports.getMe = catchAsync(async function (req, res, next) {
+  // req.user est défini dans le middleware protect de authController.js
+  // Si l'utilisateur n'est pas trouvé
+  if (!req.user) {
+    return next(
+      new AppError('You are not logged in! Please log in to get access.', 401)
+    );
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user: req.user,
+    },
   });
 });
