@@ -14,14 +14,17 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 router.get('/', userController.getAllUsers);
 router.route('/:id').get(userController.getUser);
 
+router.use(authController.protect);
 
-router.route('/me').get()
+// Récupérer les informations de l'utilisateur connecté
+router.route('/profile/me').get(authController.protect, userController.getMe);
+// Créer un nouveau chemin pour mettre à jour les informations de l'utilisateur connecté
+// -> '/profile/me' sera l'enpoint pour cela
+
+
 
 // Toutes les routes suivantes nécessitent une authentification préalable
-router.use(
-  authController.protect,
-  authController.restrictTo('admin', 'director', 'teacher')
-);
+router.use(authController.restrictTo('admin', 'director', 'teacher'));
 
 router
   .route('/:id')

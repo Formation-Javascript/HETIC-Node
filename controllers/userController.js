@@ -82,3 +82,11 @@ exports.getMe = catchAsync(async function (req, res, next) {
     },
   });
 });
+
+
+
+exports.updateMe = catchAsync(async function (req, res, next) {
+  // 1) Créer une erreur si l'utilisateur poste un mot de passe
+  // 2) Mettre à jour les informations de l'utilisateur
+  // 3) Retourner la réponse
+});
