@@ -12,10 +12,14 @@ router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
 router.get('/', userController.getAllUsers);
+router.route('/:id').get(userController.getUser);
+
+// Toutes les routes suivantes nécessitent une authentification préalable
+router.use(authController.protect);
+
 router
   .route('/:id')
-  .get(userController.getUser)
-  .patch(authController.protect, userController.updateUser);
-//.delete(userController.deleteUser);
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
 
 module.exports = router;

@@ -21,6 +21,13 @@ const userSchema = new mongoose.Schema({
     enum: ['director', 'teacher', 'student'],
     default: 'student',
   },
+  // Active permet de désactiver un utilisateur sans le supprimer
+  active: {
+    type: Boolean,
+    default: true,
+    select: false, // Ne sera pas envoyé dans les réponsesΩ
+  },
+
   password: {
     type: String,
     required: [true, 'A user must have a password'],
@@ -63,6 +70,13 @@ userSchema.pre('save', function (next) {
   this.passwordChangedAt = Date.now() - 1000;
   next();
 });
+
+// Middleware pour ne pas renvoyer les utilisateurs désactivés
+userSchema.pre(/^find/, function(next){
+  this.find({active: {$ne: false}}) // $ne = not equal
+
+  next()
+})
 
 userSchema.methods.correctPassword = async function (
   candidatePassword, // Mot de passe envoyé par l'utilisateur
